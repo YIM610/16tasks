@@ -3,10 +3,11 @@
 <head>
 	<title>TASK1</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="web">
-        <h1>网站一级标题</h1>
+    <div class="webtitle">
+        <h1>wonderme</h1>
         <ul>
         	<li><a href="html.html">导航链接一</a></li>
     	    <li><a href="html.html">导航链接二</a></li>
@@ -18,7 +19,7 @@
     	<h2>文章一级标题</h2>
     	<h3>文章二级标题</h3>
     	<p class="intro">文章作者 文章发表时间</p>
-    	<p>这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。换行了<br>
+    	<p class="article_content">这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。换行了<br>
     	这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。</p>
     	<img src="picture.jpg">
     	<p>这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。换行了<br>这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。
@@ -29,7 +30,7 @@
     	<h2>文章一级标题</h1>
     	<h3>文章二级标题</h2>
     	<p class="intro">文章作者 文章发表时间</p>
-        <p>这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。换行了<br>
+        <p class="article_content">这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。换行了<br>
         这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。
         <a href="http://ife.baidu.com">这里有一个链接连接到http://ife.baidu.com</a>
         这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。这里是一个很长很长的段落。</p>
@@ -39,6 +40,8 @@
     		<li>列表项目二</li>
     		<li>列表项目三</li>
     	</ul>
+    </article>
+    <div class="pictures">
     	<ul>
     		<li>好看的图片<br><img src="picture.jpg" alt="beautifulpicture"></li>
     		<li>好看的图片<br><img src="picture.jpg" alt="beautifulpicture"></li>
@@ -51,7 +54,7 @@
     		<li>好看的图片<br><img src="picture.jpg" alt="beautifulpicture"></li>
     		<li>好看的图片<br><img src="picture.jpg" alt="beautifulpicture"></li>
     	</ul>
-    </article>
+    </div>
     <article class="third_article">
     	<h1>最后一篇文章一级标题</h1>
     	<h2>文章二级标题</h2>
@@ -62,7 +65,7 @@
     	    <li>排名3</li>
     	</ol>
     	<p>下面是一个表格，给表格加上一个border=“1”好让你看出是一个表格</p>
-    	<table border="1">
+    	<table>
     	    <tr>
     	    	<th>表头</th>
     	    	<th>表头</th>
@@ -96,7 +99,6 @@
     </article>
     <div class="sidebar">
     	<h2>这里是一个侧栏，这是侧栏的标题</h2>
-    	<h3>侧栏注册窗口标题</h3>
     	<form>
     		<label for="email">请输入邮箱地址：</label>
     			<input type="text" name="email">
