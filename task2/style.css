@@ -96,8 +96,11 @@ table tr:last-child {
 
 .sidebar form {
 	font-size: 15px;
-	line-height: 200%;
 	margin-top: 30px;
+}
+
+.sidebar div {
+	margin: 14px 0;
 }
 
 .tips {
