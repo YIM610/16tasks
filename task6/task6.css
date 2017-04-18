@@ -318,7 +318,26 @@ header {
 
 .only {
 	font-size: 110px;
-	float: left;
+}
+
+.main_sidebar_second_lb_hello {
+    border-left: 2px solid;
+    width: 160px;
+    padding-left: 10px;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+.main_sidebar_second_lb_hello h4 {
+	font-size:15px;
+	font-style: italic;
+	font-weight: normal; 
+	margin-bottom: 5px;
+}
+
+.main_sidebar_second_lb_hello p {
+	font-size: 12px;
 }
 
 .main_sidebar_second_hw_text {
@@ -328,12 +347,24 @@ header {
 	color: rgb(90,91,91);
 	font-style: italic;
 	float: right;
-	padding-top: 70px;
+	padding-top: 80px;
 }
 
-.main_sidebar_second_hw_text span {
-	font-size: 72px;
-	color: rgb(212,93,92);
+.main_sidebar_second_hw span {
+	font: 72px "SimHei";
+	color: #d45d5c;
+}
+
+#span1 {
+	height: 30px;
+    float: left;
+    margin-top: -20px;
+}
+
+#span2 {
+	height: 30px;
+	margin-top: -10px;
+	float: right;
 }
 
 footer {
