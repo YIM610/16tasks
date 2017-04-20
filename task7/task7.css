@@ -1,0 +1,48 @@
+* {
+	margin: 0;
+	[padding: 0;]
+}
+
+body {
+	width: 100%;
+	min-width: 1280px;
+	font-family: "Microsoft YaHei";
+}
+
+header {
+	height: 60px;
+	position: relative;
+}
+
+header .banner-left {
+	width: 10%;
+	text-align: center;
+	line-height: 60px;
+	background: url(img/icon-1.png) no-repeat left;
+	background-size: 16% 50%;
+	position: absolute;
+	left: 7%;
+}
+
+header .banner-left h1 {
+    color: #4e3a4f;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+header nav {
+    position: absolute;
+    left: 40%;
+    bottom: 10px;
+}
+
+header nav ul {
+	list-style-type: none;
+}
+
+header nav ul li {
+	padding: 15px;
+	font-size: 14px;
+	color: #534141;
+	float: left;
+}
