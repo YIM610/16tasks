@@ -37,12 +37,57 @@ header nav {
 }
 
 header nav ul {
+	width: 400px;
 	list-style-type: none;
 }
 
 header nav ul li {
-	padding: 15px;
+	width:80px;
 	font-size: 14px;
 	color: #534141;
+	text-align: center;
 	float: left;
+
+	-webkit-transition:color 0.4s ease-in-out;
+	-moz-transition: color 0.4s ease-in-out;
+	transition: color 0.4 ease-in-out;
+}
+
+header nav ul li:hover {
+	color: #f04c57;
+}
+
+header .move {
+	border-top: 4px solid #e53c3c;
+	position: absolute;
+	left: 45px;
+	top: 45px;
+
+	-webkit-transition: left 0.4s ease-in-out;
+	-moz-transition: left 0.4s ease-in-out;
+	transition: left 0.4s ease-in-out;
+}
+
+header nav ul li:nth-child(1):hover~.move {
+	left: 45px;
+}
+
+header nav ul li:nth-child(2):hover~.move {
+	left: 125px;
+}
+
+header nav ul li:nth-child(3):hover~.move {
+	left: 205px;
+}
+
+header nav ul li:nth-child(4):hover~.move {
+	left: 285px;
+}
+
+header nav ul li:nth-child(5):hover~.move {
+	left: 365px;
+}
+
+header .banner-right {
+	
 }
