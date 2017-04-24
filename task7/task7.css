@@ -355,6 +355,7 @@ header .banner-right:hover .move {
 	line-height: 36px;
 	font-size: 16px;
 	display: inline-block;
+	margin: 0 10px;
 	border: 0;
 	background-color: #BE4F48;
     color: #fff;
@@ -365,4 +366,49 @@ header .banner-right:hover .move {
     -webkit-transition: background-color 0.4s ease-in-out;
     -moz-transition: background-color 0.4s ease-in-out;
     transition: background-color 0.4s ease-in-out;
+}
+
+#section_4 input[type="submit"]:hover {
+	background-color: #e31212;
+	border-radius: 3px;
+}
+
+#section_5 {
+	height: 500px;
+	background-color: #edeaea;
+	text-align: center;
+}
+
+#section_5 .text {
+	display: inline-block;
+	width: 20%;
+	height: 400px;
+	position: relative;
+	top: 50px;
+}
+
+#section_5 img {
+	height: 300px;
+}
+
+#section_5 .text p:first-of-type {
+	font-size: 14px;
+	padding-top: 5px;
+	color: #4403f;
+}
+
+#section_5 .text p:last-of-type {
+	font-size: 12px;
+	padding: 10px 0;
+	color: #b3afac;
+}
+
+#section_5 .text:nth-child(2) {
+	padding-top: 30px;
+}
+
+#section_5 .text:nth-child(2)>p:first-of-type {
+	font-size: 24px;
+	text-indent: 30px;
+	letter-spacing: 30px;
 }
