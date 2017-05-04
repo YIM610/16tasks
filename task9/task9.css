@@ -171,6 +171,7 @@ header div {
 
 .main {
 	width: 1020px;
+	height: 1215px;
 	float: right;
 	font-size: 12px;
 	background: #eeeeed;
@@ -317,6 +318,7 @@ header div {
 
 .section_2 {
 	margin-top: 8px;
+	overflow: hidden;
 }
 
 .section_2 ul li {
@@ -377,4 +379,282 @@ header div {
 	position: absolute;
 	left: 60px;
 	top: 25px;
+}
+
+.section_3 {
+	width: 100%;
+	height: 90px;
+	overflow: hidden;
+	position: relative;
+	margin-top: 20px;
+}
+
+.section_3 p {
+	height: 20px;
+}
+
+.section_3>div {
+	width: 200px;
+	height: 70px;
+	background: #fff;
+	box-sizing: border-box;
+	float: left;
+	margin-right: 30px;
+	position: relative;
+}
+
+.text {
+	position: absolute;
+	left: 7px;
+	top: 15px;
+}
+
+.text p:first-child {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.text p:last-child {
+	color: #b5b5b5;
+}
+
+.block {
+	width: 60px;
+	height: 45px;
+	background: #43b29d;
+	position: absolute;
+	left: 125px;
+	top: 10px;
+}
+
+.green {
+	border-left: 4px solid #43b29d;
+}
+
+.blue {
+	border-left: 4px solid #388ac1;
+}
+
+.blue .block {
+	background: #388ac1;
+}
+
+.red {
+	border-left: 4px solid #d04b36;
+}
+
+.red .block {
+	background: #d04b36;
+}
+
+.yellow {
+	border-left: 4px solid #e2cd46;
+	margin-right: 0 !important;
+}
+
+.yellow .block {
+	background: #e2cd46;
+}
+
+.section_4 {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.section_4>div {
+	background: #fff;
+	float: left;
+    box-sizing: border-box;
+	border: 1px solid #cfd2d5;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.section_4>div>p {
+	height: 40px;
+	box-sizing: border-box;
+	padding-left: 20px;
+	padding-top: 10px;
+	color: #b4b4b4;
+	background: #f4f5f6;
+}
+
+.project {
+	width: 530px;
+	height: 360px;
+}
+
+.detail {
+	width: 350px;
+	height: 360px;
+	margin-right: 0 !important;
+	position: relative;
+}
+
+.calender {
+	width: 350px;
+	height: 360px;
+}
+
+.rating {
+	width: 530px;
+	height: 360px;
+	margin-right: 0 !important;
+}
+
+.project div {
+	padding: 10px 20px 20px 20px;
+}
+
+.project ul {
+	overflow: hidden;
+}
+
+.project ul li {
+	list-style-type: none;
+	width: 80px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	float: left;
+	background: #e6e7e7;
+	margin-right: 5px;
+	border: 1px solid #e6e7e7;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor: pointer;
+}
+
+.project .current {
+	background: #fff;
+	border: 1px solid #cacbcb;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #fff;
+}
+
+.project .tablewrapper {
+	width: 445px;
+	height: 200px;
+	border: 1px solid #cacbcb;
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	margin-top: -1px;
+}
+
+.project table {
+    width: 400px;
+    height: 180px;
+    margin: 15px auto;
+    text-align: center;
+	border-collapse: collapse;
+}
+
+.project table td {
+	border: 1px solid #cacbcb;
+}
+
+.project table td:hover {
+	background: #e6e7e7;
+}
+
+.detail_content {
+    padding-top: 15px;
+    padding-left: 35px;
+}
+
+.detail_content>div p:first-child {
+    color: #c7c6c6;
+    height: 20px;
+    padding-top: 3px;	
+}
+
+.detail_content>div {
+	padding-left: 15px;
+}
+
+.detail .first {
+	width: 280px;
+	height: 45px;
+	border-bottom: 1px solid #c7c6c6;
+}
+
+.detail .second {
+	width: 95px;
+	height: 45px;
+	border-right: 1px solid #c7c6c6;
+	display: inline-block;
+}
+
+.detail .third {
+	width: 100px;
+	height: 45px;
+	display: inline-block;
+}
+
+.detail .forth {
+	width: 310px;
+	height: 45px;
+	border-top: 1px solid #c7c6c6;
+}
+
+.detail .submit {
+	width: 220px;
+	padding-top: 10px;
+	border-top: 1px solid #c7c6c6;
+	position: absolute;
+    left: 35px;
+    top: 285px;
+}
+
+.detail .submit label {
+	position: relative;
+	top: -2px;
+	color: #c7c6c6;
+}
+
+.detail .submit input[type="submit"] {
+    width: 50px;
+    height: 25px;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    background: #388ac1;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.detail .submit input[type="submit"]:hover {
+	background: #23618a;
+}
+
+.calender_content select {
+	height: 20px;
+	border: 1px solid #cbcbcb;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.calender_content select::-ms-expand {
+    display: none;
+}
+
+.calender_content i {
+	width: 15px;
+	height: 15px;
+	background: url(images/date_arrow.png) no-repeat #fff;
+}
+
+#year {
+	width: 60px;
+}
+
+#month {
+	width: 80px;
+}
+
+#date {
+	width: 70px;
 }
