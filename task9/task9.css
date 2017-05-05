@@ -492,7 +492,7 @@ header div {
 	position: relative;
 }
 
-.calender {
+.calendar {
 	width: 350px;
 	height: 360px;
 }
@@ -629,32 +629,181 @@ header div {
 	background: #23618a;
 }
 
+.calender_content {
+	text-align: center;
+	margin: 5px auto;
+}
+
 .calender_content select {
 	height: 20px;
 	border: 1px solid #cbcbcb;
+	font-size: 12px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	background: url(images/date_arrow.png) no-repeat;
+	background-position: 48px 50%;
 }
 
 .calender_content select::-ms-expand {
     display: none;
 }
 
-.calender_content i {
-	width: 15px;
-	height: 15px;
-	background: url(images/date_arrow.png) no-repeat #fff;
-}
-
 #year {
 	width: 60px;
+	padding-left: 3px;
 }
 
 #month {
 	width: 80px;
+	padding-left: 20px;
 }
 
 #date {
 	width: 70px;
+	padding-left: 3px;
+	background-position: 58px 50%;
+}
+
+.calendar button {
+	width: 60px;
+	height: 20px;
+	border: 1px solid #cbcbcb;
+	outline: 0;
+	background: #fff;
+}
+
+.calendar table {
+	display: inline-block;
+	border-collapse: collapse;
+	width: 310px;
+	height: 250px;
+	margin-top: 10px;
+}
+
+.calendar table p {
+	width: 40px;
+	height: 40px;
+	padding-top: 2px;
+	margin-top: 5px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.calendar table th {
+	font-weight: 500;
+}
+
+.calendar table td {
+	width: 46px;
+	height: 40px;
+	text-align: center;
+}
+
+.calendar table tr:first-child {
+	height: 30px;
+	font-weight: 500;
+    border-top: 1px solid #a9cfec;
+    border-bottom: 1px solid #cbcbcb;
+}
+
+.date_red {
+	color: #d4454a;
+}
+
+.date_border {
+	border: 1px solid #f7d564;
+}
+
+.calendar table p:hover {
+	border: 1px solid #f7d564;
+}
+
+.rating .tablewrapper {
+	text-align: center;
+}
+
+.rating table {
+	width: 450px;
+	height: 300px;
+	display: inline-block;
+	margin-top: 20px;
+	border-collapse: collapse;
+}
+
+.rating .current {
+	background: #f3f5f6;
+}
+
+.rating table td, .rating table th {
+	border: 1px solid #cbcbcb;
+	height: 25px;
+}
+
+.rating .first {
+    width: 65px;
+}
+
+.rating .second {
+	width: 90px;
+}
+
+.rating .third {
+	width: 290px;
+	box-sizing: border-box;
+	padding-left: 25px;
+	text-align: left;
+}
+
+.rating table td>div {
+	width: 165px;
+	height: 5px;
+	margin-left: 15px;
+	display: inline-block;
+	background: #dcdcdc;
+}
+
+.rating table td>div div {
+	width: 50px;
+	height: 5px;
+	background: #86cdf1;
+}
+
+#one {
+    width: 140px;
+    background: #ec6d51;
+}
+
+#two {
+	width: 120px;
+	background: #ef8150;
+}
+
+#three {
+	width: 100px;
+	background: #f5b67b;
+}
+
+#four {
+	width: 95px;
+}
+
+#five {
+	width: 85px;
+}
+
+#six {
+	width: 75px;
+}
+
+#seven {
+	width: 70px;
+}
+
+#eight {
+	width: 65px;
+}
+
+#nine {
+	width: 60px;
 }
