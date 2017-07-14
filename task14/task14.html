@@ -35,11 +35,15 @@ var aqiData = [
         return document.getElementById(id);
     }
     var html = '';
-    var j = 1;
+    var arr = ["一", "二", "三", "四", "五"];
+
+    aqiData.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+
     for(var i = 0; i < aqiData.length; i++) {
         if(aqiData[i][1] > 60) {
-          html += '<li>第' + j + '名：' + aqiData[i] + '</li>';
-          j++;
+          html += '<li>第' + arr[i] + '名：' + aqiData[i] + '</li>';
         }
     }
     $("aqi-list").innerHTML = html;
