@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task23</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#root {
+			width: 1200px;
+			height: 200px;
+			border: 1px solid black;
+			margin: 20px auto;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			position: relative;
+		}
+		.stree1, .stree2, .stree3 {
+			width: 0;
+			height: 160px;
+			margin: 10px;
+			border: 1px solid black;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			position: relative;
+		}
+		.stree1 {
+			flex-grow: 4;
+		}
+		.stree2 {
+			flex-grow: 4;
+		}
+		.stree3 {
+			flex-grow: 1;
+		}
+		.sstree1, .sstree2, .sstree3 {
+			width: 0;
+			height: 120px;
+			margin: 10px;
+			border: 1px solid black;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			position: relative;
+		}
+		.sstree1 {
+			flex-grow: 4;
+		}
+		.sstree2 {
+			flex-grow: 1;
+		}
+		.sstree3 {
+			flex-grow: 2;
+		}
+		.stree2 .sstree1 {
+			flex-grow: 2;
+		}
+		.ssstree {
+			width: 0;
+			height: 80px;
+			margin: 10px;
+			border: 1px solid black;
+			flex-grow: 1;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;;
+			position: relative;
+		}
+		.sssstree {
+			width: 0;
+			height: 40px;
+			margin: 10px;
+			border: 1px solid black;
+			flex-grow: 1;
+			position: relative;
+		}
+		.btns {
+			width: 30px;
+			height: 30px;
+			margin: 10px;
+		}
+		#container p {
+			position: absolute;
+			top: 0;
+			left: 2px;
+		}
+		#result, #warning {
+			display: none;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="btns">
+		<input type="button" value="广" class="btns">
+		<input type="button" value="深" class="btns">
+		<input type="text" id="search">
+		<span id="result">不存在该节点</span>
+	</div>
+	<div id="btns2">
+		<input type="button" value="添加" class="btns">
+		<input type="button" value="删除" class="btns">
+		<input type="text" id="add">
+		<span id="warning">请输入插入的节点数据</span>
+	</div>
+	<div id="container">
+		<div id="root">
+			<p>Super</p>
+			<div class="stree1">
+				<p>Car</p>
+				<div class="sstree1">
+					<p>Apple</p>
+					<div class="ssstree"><p>Pear</p></div>
+					<div class="ssstree"><p>Pig</p></div>
+					<div class="ssstree"><p>Cola</p></div>
+					<div class="ssstree"><p>Soccer</p></div>
+				</div>
+				<div class="sstree2"><p>Phone</p></div>
+				<div class="sstree3">
+					<p>Learn</p>
+					<div class="ssstree"><p>Book</p></div>
+					<div class="ssstree"><p>School</p></div>
+				</div>
+			</div>
+			<div class="stree2">
+				<p>Note</p>
+				<div class="sstree1">
+					<p>Human</p>
+					<div class="ssstree"><p>Code</p></div>
+					<div class="ssstree"><p>Operate</p></div>
+					<div class="ssstree"><p>Man</p></div>
+				</div>
+				<div class="sstree2">
+					<p>Program</p>
+					<div class="ssstree">
+						<p>Bement</p>
+						<div class="sssstree"><p>Cat</p></div>
+					</div>
+					<div class="ssstree"><p>Glass</p></div>
+				</div>
+			</div>
+			<div class="stree3"><p>Fish</p></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btnlist = document.getElementsByClassName("btns");
+		var treeroot = document.getElementById("root");
+		var b = btnlist[0], d = btnlist[1], a = btnlist[2], dt = btnlist[3];
+		var nodeList = [];
+		var timer = null;
+		var srh = document.getElementById("search");
+		var srhText = null;
+		var index = 0;
+		var resu = document.getElementById("result");
+		var seletedNode;
+		var add = document.getElementById("add");
+
+		window.onload = function() {
+			b.onclick = function() {
+				reset();
+				nodeList = [treeroot];
+				bfs(treeroot, index);
+				visit();
+			};
+			d.onclick = function() {
+				reset();
+				dfs(treeroot);
+				visit();
+			};
+			a.onclick = function() {
+				reset();
+				addNode();
+			};
+			dt.onclick = function() {
+				reset();
+				deleteNode();
+			};
+			clickDiv();
+		};
+
+		function bfs(node, index) {
+			if(node != null) {
+				//nodeList.push(node);
+				var childLen = node.childNodes.length;
+				for(var i = 0; i < childLen; i++) {
+					if(node.childNodes[i].nodeType == 1 && node.childNodes[i].nodeName != "P") {
+						nodeList.push(node.childNodes[i]);
+					}
+				}
+				index++;
+				bfs(nodeList[index], index);
+			}
+		}
+
+		function dfs(node) {
+			if(node != null) {
+				var childLen = node.childNodes.length;
+				for(var i = 0; i < childLen; i++) {
+					if(node.childNodes[i].nodeType == 1 && node.childNodes[i].nodeName != "P") {
+						break;
+					}
+				}
+				nodeList.push(node);
+				dfs(node.childNodes[i]);
+				dfs(node.nextElementSibling);
+			}
+		}
+
+		function visit() {
+			var i = 0;
+				nodeList[i].style.backgroundColor = "pink";
+				timer = setInterval(function() {
+					i++;
+					if(i < nodeList.length) {
+						if(srhText && nodeList[i].firstElementChild && srhText == nodeList[i].firstElementChild.textContent) {
+							clearInterval(timer);
+							nodeList[i - 1].style.backgroundColor = "white";
+							nodeList[i].style.backgroundColor = "red";
+						}
+						else {
+							nodeList[i - 1].style.backgroundColor = "white";
+							nodeList[i].style.backgroundColor = "pink";
+						}
+					}
+					else {
+						clearInterval(timer);
+						nodeList[nodeList.length - 1].style.backgroundColor = "white";
+						resu.style.display = "inline";
+					}
+				}, 500);
+			
+		}
+
+		function reset() {
+			nodeList = [];
+			srhText = srh.value;
+			resu.style.display = "none";
+			clearInterval(timer);
+			var divs = document.getElementById("container").getElementsByTagName("DIV");
+			var divlen = divs.length;
+			for(var i = 0; i < divlen; i++) {
+				divs[i].style.backgroundColor = "white";
+			}
+		}
+
+		function clickDiv() {
+			var divs = document.getElementById("container").getElementsByTagName("DIV");
+			for(var i = 0; i < divs.length; i++) {
+				addClick(divs[i]);
+			}
+		}
+
+		function addClick(node) {
+			node.onclick = function(e) {
+				reset();
+				if(seletedNode) {
+					seletedNode.style.backgroundColor = "white";
+				}
+				this.style.backgroundColor = "yellow";
+				e.stopPropagation();
+				seletedNode = this;
+			};
+		}
+
+		function addNode() {
+			var addText = document.getElementById("add").value;
+			if(seletedNode == null || !addText) {
+				document.getElementById("warning").style.display = "inline";
+				seletedNode = null;
+			}
+			else {
+				document.getElementById("warning").style.display = "none";
+				var newNode = document.createElement("div");
+				var newP = document.createElement("p");
+				newP.innerHTML = addText;
+				newNode.appendChild(newP);
+				newNode.style.border = "1px solid black";
+				newNode.style.display = "flex";
+				newNode.style.width = "0";
+				newNode.style.margin = "10px";
+				newNode.style.flexGrow = "1";
+				newNode.style.display = "flex";
+				newNode.style.justifyContent = "space-around";
+				newNode.style.alignItems = "center";
+				newNode.style.height = (parseInt(window.getComputedStyle(seletedNode).height) - 40) + "px";
+				newNode.style.position = "relative";
+				addClick(newNode);
+				seletedNode.appendChild(newNode);
+				seletedNode = null;
+			}	
+		}
+
+		function deleteNode() {
+			if(seletedNode) {
+				document.getElementById("warning").style.display = "none";
+				seletedNode.parentNode.removeChild(seletedNode);
+				seletedNode = null;
+			}
+		}
+	</script>
+</body>
+</html>

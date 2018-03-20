@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task31</title>
+	<style>
+		#fm {
+			width: 500px;
+			margin: 100px auto;
+			position: relative;
+			padding: 30px 100px;
+		}
+		.id-choose {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 30px;
+		}
+		#fm input[type=radio] + label {
+			font-size: 18px;
+			margin-left: 10px;
+		}
+		#student > label, #not-student > label {
+			position: absolute;
+			font-weight: bold;
+			left: 0px;
+			line-height: 1.8em;
+		}
+		#student {
+			margin-bottom: 100px;
+			display: none;
+		}
+		#city {
+			width: 300px;
+			height: 30px;
+			outline: none;
+		}
+		.school {
+			width: 110px;
+			height: 30px;
+			outline: none;
+			position: absolute;
+			right: 100px;
+			display: none;
+		}
+		.school-visibal {
+			display: inline-block;
+		}
+		#not-student {
+			display: none;
+		}
+		#not-student input {
+			width: 500px;
+			height: 30px;
+		}
+		.student-visible, .not-student-visible {
+			display: block !important;;
+		}
+	</style>
+</head>
+<body>
+	<form id="fm">
+		<div class="id-choose">
+			<span>
+				<input type="radio" name="identity" value="student-visible" checked="true" id="in-school">
+				<label>在校生</label>				
+			</span>
+			<span>
+				<input type="radio" name="identity" value="not-student-visible" id="out-school">
+				<label>非在校生</label>
+			</span>
+		</div>
+		<div id="student" class="student-visible">
+			<label>学校</label>
+			<select name="city" id="city">
+				<option value="bj">北京</option>
+				<option value="sh">上海</option>
+				<option value="js">江苏</option>
+				<option value="gz">贵州</option>
+				<option value="cq">重庆</option>
+			</select>
+			<select name="bj-school" class="school bj-school school-visibal">
+				<option value="pku">北京大学</option>
+				<option value="thu">清华大学</option>
+			</select>
+			<select name="sh-school" class="school sh-school">
+				<option value="sjtu">上海交通大学</option>
+				<option value="fudan">复旦大学</option>
+			</select>
+			<select name="js-school" class="school js-school">
+				<option value="nju">南京大学</option>
+				<option value="seu">东南大学</option>
+			</select>	
+			<select name="gz-school" class="school gz-school">
+				<option value="guizhou">贵州大学</option>
+				<option value="guizhoushifan">贵州师范大学</option>
+			</select>
+			<select name="cq-school" class="school cq-school">
+				<option value="swu">西南大学</option>
+				<option value="cqu">重庆大学</option>
+			</select>
+		</div>
+		<div id="not-student">
+			<label>就业单位</label>
+			<input type="text">
+		</div>
+	</form>
+	<script type="text/javascript">
+		var idChoose = document.getElementsByClassName("id-choose")[0];
+		var cy = document.getElementById("city");
+		var cyOptions = cy.children;
+		var oldSelectedIndex = 0;
+		window.onload = function() {
+			idChoose.onchange = function() {
+				changeRadio();
+			};
+			cy.onchange = function() {
+				oldSelectedIndex = showSchoolItem(cy.selectedIndex, oldSelectedIndex);
+			};
+		};
+		function changeRadio() {
+			var st = document.getElementById("student");
+			var nst = document.getElementById("not-student");
+			if(document.querySelector("#in-school").checked) {
+				nst.className = "";
+				st.className = document.querySelector("#in-school").value;
+			} else {
+				st.className = "";
+				nst.className = document.querySelector("#out-school").value;
+			}
+		}
+		function showSchoolItem(index, oldSelectedIndex) {
+			var selectedCity = cyOptions[index].value;
+			var showId = selectedCity + "-school";
+			var show = document.getElementsByName(showId)[0];
+			show.className = "school " + showId + " school-visibal";
+			if(oldSelectedIndex != index) {
+				var oldSelectedCity = cyOptions[oldSelectedIndex].value;
+				var oldShowId = oldSelectedCity + "-school";
+				var oldShow = document.getElementsByName(oldShowId)[0];
+				oldShow.className = "school " + showId;
+			}
+			return index;
+
+		}
+	</script>
+</body>
+</html>

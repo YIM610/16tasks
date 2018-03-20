@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task29</title>
+	<style>
+		#main {
+			width: 100%;
+			margin: 100px auto;
+			text-align: center;
+		}
+		#form-area {
+			width: 800px;
+			margin: 0 auto;
+		}
+		#form-area label {
+			text-align: left;
+			font-size: 18px;
+			font-weight: bold;
+			position: absolute;
+			left: 0;
+		}
+		.input-wrapper input {
+			border: 1px solid #999;
+			border-radius: 3px;
+			outline: none;
+			width: 400px;
+			height: 35px;
+			padding-left: 10px;
+			box-sizing: border-box;
+			font-size: 18px;
+		}
+		.input-wrapper {
+			position: relative;
+			margin: 50px;
+		}
+		.info {
+			padding: 2px 0;
+			font-size: 14px;
+			position: absolute;
+			left: 150px;
+			top: 40px;
+		}
+		.info-invisible {
+			display: none;
+		}
+		.info-prompt {
+			color: #CFCFCF;
+		}
+		.info-correct {
+			color: 	#9BCD9B;
+		}
+		.info-wrong {
+			color: #EE4000;
+		}
+		.input-correct {
+			border-color: #9BCD9B !important; 
+		}
+		.input-wrong {
+			border-color: #EE4000 !important;
+		}
+		#submit {
+			width: 70px;
+			height: 30px;
+			color: #fff;
+			border: 1px solid #4682B4;
+			border-radius: 5px;
+			outline: none;
+			background-color: #4F94CD;
+			position: relative;
+			left: 170px;
+		}
+		#submit:hover {
+			background-color: #4682B4;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<form id="form-area">
+			<div class="input-wrapper">
+				<label>名称</label>	
+				<input type="text" name="name">		
+				<span class="info info-prompt info-invisible">必填，长度为4~16个字符</span>
+			</div>
+			<div class="input-wrapper">
+				<label>密码</label>
+				<input type="password" name="password" id="pw">		
+				<span class="info info-prompt info-invisible">必填，长度为4~16个字符</span>
+			</div>
+			<div class="input-wrapper">
+				<label>密码确认</label>
+				<input type="password" name="repassword">		
+				<span class="info info-prompt info-invisible">必填，长度为4~16个字符</span>
+			</div>	
+			<div class="input-wrapper">
+				<label>邮箱</label>
+				<input type="text" name="email">		
+				<span class="info info-prompt info-invisible">必填，长度为4~16个字符</span>
+			</div>
+			<div class="input-wrapper">
+				<label>手机</label>
+				<input type="text" name="telephone">		
+				<span class="info info-prompt info-invisible">必填，长度为4~16个字符</span>
+			</div>
+			<input type="submit" id="submit">
+		</form>
+	</div>
+	<script type="text/javascript">
+		var PROMPT_WORD = "必填，长度为4~16个字符";
+		var TELE_PROMPT = "必填，11位数字";
+		var EMAIL_PROMPT = "必填，xxx@xxx.com";
+		var smNode = document.getElementById("submit");
+		var nmNode = document.getElementById("input-name");
+		window.onload = function() {				
+			var inputList = document.getElementsByTagName("input");
+
+			smNode.onclick = function(e) {
+				e.preventDefault();
+				for(var i = 0; i < inputList.length - 1; i++) {
+					validate(inputList[i], inputList.name);
+				}
+				return false;
+			};
+
+			for(var i = 0; i < inputList.length - 1; i++) {
+				inputList[i].onfocus = function() {
+					showInfo(this, this.name);
+				};
+
+				inputList[i].onblur = function() {
+					validate(this, this.name);
+				};
+			}
+		};
+
+		function addClass(node, cl) {
+			var classNm = node.className;
+			var classList = classNm.split(" ");
+			classList.push(cl);
+			classNm = classList.join(" ");
+			node.className = classNm;
+		}
+
+		function removeClass(node, cl) {
+			var classNm = node.className;
+			var classList = classNm.split(" ");
+			var clIndex = classList.findIndex(function(item, index, array) {
+				return item == cl;
+			});
+			classList.splice(clIndex, 1);
+
+			classNm = classList.join(" ");
+			node.className = classNm;
+		}
+
+		var validate = function(inputNode, type) {
+			var val = inputNode.value;
+			var getLength = function(string) {
+				var length = 0;
+				for(var i = 0; i < string.length; i++) {
+					var code = string.charCodeAt(i);
+					if(code >=0 && code <= 128) {
+						length += 1;
+					} else {
+						length += 2;
+					}
+				}
+				return length;
+			};
+
+			function wrong(node, info) {
+				node.className = "input-wrong";
+				node.nextElementSibling.className = "info info-wrong";
+				node.nextElementSibling.innerHTML = info;
+			}
+
+			function correct(node, info) {
+				node.className = "input-correct";
+				node.nextElementSibling.className = "info info-correct";
+				node.nextElementSibling.innerHTML = info;
+			}
+
+			if(type == "name" || type == "password" || type == "email") {
+				var length = getLength(val);
+				if(length == 0) {
+					wrong(inputNode, "输入不能为空");
+				} else if(length < 4 || length > 16) {
+					wrong(inputNode, PROMPT_WORD);
+				} else {
+					if(type == "email") {
+						if(val.indexOf("@") != -1 && val.indexOf(".com") != -1) {
+							correct(inputNode, "电子邮件格式正确");
+						} else {
+							wrong(inputNode, "电子邮件格式错误");
+						}
+					} else {
+						correct(inputNode, "格式正确");			
+					}
+				}
+			} else if(type == "telephone") {
+				var reg = /^1[3,4,5,7,8]\d{9}$/;
+				if(val.length == 0) {
+					wrong(inputNode, "输入不能为空");
+				} else if(reg.test(val)) {
+					correct(inputNode, "电话格式正确");
+				} else {
+					wrong(inputNode, "电话格式错误");
+				}
+			} else if(type == "repassword") {
+				passw = document.getElementById("pw").value;
+				if(val !== passw || passw == "") {
+					wrong(inputNode, "密码确认失败");
+				} else {
+					correct(inputNode, "密码确认成功");
+				}
+			}
+		};
+
+		var showInfo= function(node, type) {
+			node.className = "";
+			node = node.nextElementSibling;
+			if(node.className.indexOf("info-invisible") != -1) {
+				removeClass(node, "info-invisible");
+			}
+			node.className = "info info-prompt";
+			if(type == "telephone") {
+				node.innerHTML = TELE_PROMPT;
+			} else if(type == "email") {
+				node.innerHTML = EMAIL_PROMPT;
+			} else {
+				node.innerHTML = PROMPT_WORD;				
+			}
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task25</title>
+	<meta charset="utf-8">
+	<style>
+		ul, li {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		#container {
+			width: 500px;
+			border: 1px solid black;
+			margin: 30px auto;
+			position: relative;
+		}
+		li {
+			background: url(imgs/unfold.png) no-repeat;
+			background-size: 20px;
+			padding-left: 20px;
+			cursor: pointer;
+			width: 80px;
+			margin: 15px;
+		}
+		button {
+			width: 70px;
+			height: 30px;
+			background: #FFDAB9;
+			margin: 10px;
+			outline: none;
+		}
+		.ctrl1 button {
+			background: #E6E6FA;
+		}
+		.ctrl2 {
+			margin: 10px;
+		}
+		#ctrl {
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="ctrl">
+			<div class="ctrl1">
+				<button id="del">删除节点</button>
+			</div>
+			<div class="ctrl2">
+				<input type="text">
+				<button id="srh">查询节点</button>
+				<button id="add" title="默认添加到第一层节点">添加节点</button>
+			</div>
+		</div>
+		<ul id="root">
+			<p></p>
+			<li class="stree">
+				<p>111</p>
+				<ul>
+					<li>
+						<p>1111</p>
+						<ul>
+							<li>
+								<p>11111</p>
+							</li>
+							<li>
+								<p>11112</p>
+							</li>
+							<li>
+								<p>11113</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>1112</p>
+					</li>
+					<li>
+						<p>1113</p>
+						<ul>
+							<li>
+								<p>11131</p>
+							</li>
+							<li>
+								<p>11132</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="stree">
+				<p>222</p>
+				<ul>
+					<li>
+						<p>2221</p>
+					</li>
+					<li>
+						<p>2222</p>
+					</li>
+				</ul>
+			</li>
+			<li class="stree">
+				<p>333</p>
+				<ul>
+					<li>
+						<p>3331</p>
+						<ul>
+							<li>
+								<p>33311</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="stree">
+				<p>444</p>
+			</li>
+		</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var tree = document.getElementById("root");
+		var lis = document.getElementsByTagName("li");
+		var selectedNode = null, oldSelected = tree;
+		var btns = document.getElementsByTagName("button");
+		var d = btns[0], s = btns[1], a = btns[2];
+		window.onload = function() {
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].style.color = "black";
+				lis[i].status = true;
+				lis[i].onclick = change(lis[i]);
+			}
+			a.onclick = function() {
+				add();
+			};
+			d.onclick = function() {
+				del();
+			};
+			s.onclick = function() {
+				srh(tree);
+			};
+		};
+
+		function hasChildUL(node){
+			for(var i = 0; i < node.childNodes.length; i++) {
+				if(node.childNodes[i].nodeName == "UL") {
+					return node.childNodes[i];
+				}
+			}
+			return false;
+		}
+
+		function change(node) {
+			return function(e) {
+				imgList = ["url(imgs/fold.png)", "url(imgs/unfold.png)"];
+				e.stopPropagation();
+				oldSelected.style.color = "black";
+				node.style.color = "red";
+				if(node.status) {
+					changeStatus(node);
+					selectedNode = this;
+					oldSelected = this;
+					node.style.backgroundImage = imgList[0];
+					if(hasChildUL(selectedNode)) {
+						for(var i = 0; i < selectedNode.childNodes.length; i++) {
+							if(selectedNode.childNodes[i].nodeName == "UL") {
+								selectedNode.childNodes[i].style.display = "none";
+							}
+						}
+					}
+				}
+				else {
+					changeStatus(node);
+					selectedNode = this;
+					oldSelected = this;
+					node.style.backgroundImage = imgList[1];
+					if(hasChildUL(selectedNode)) {
+						for(var i = 0; i < selectedNode.childNodes.length; i++) {
+							if(selectedNode.childNodes[i].nodeName == "UL") {
+								selectedNode.childNodes[i].style.display = "block";
+							}
+						}
+					}
+				}
+			};
+		}
+
+		function subChange(node) {
+			imgList = ["url(imgs/fold.png)", "url(imgs/unfold.png)"];
+			changeStatus(node);
+			node.style.backgroundImage = imgList[1];
+			if(hasChildUL(node)) {
+				for(var i = 0; i < node.childNodes.length; i++) {
+					if(node.childNodes[i].nodeName == "UL") {
+						node.childNodes[i].style.display = "block";
+					}
+				}
+			}
+		}
+
+		function changeStatus(node) {
+			node.status = node.status?false:true;
+		}
+
+		function add() {
+			if(!selectedNode) {
+				selectedNode = oldSelected;
+			}
+			var text = document.getElementsByTagName("input")[0].value;
+			var ul = hasChildUL(selectedNode);
+			if(!ul) {
+				ul = document.createElement("ul");
+				selectedNode.appendChild(ul);
+			}
+			var newNode = document.createElement("li");
+			var newP = document.createElement("p");
+			newP.innerHTML = text;
+			newNode.appendChild(newP);
+			ul.appendChild(newNode);
+			newNode.onclick = change(newNode);
+			newNode.status = true;
+			newNode.style.color = "black";
+		}
+
+		function del() {
+			if(selectedNode) {
+				selectedNode.parentNode.removeChild(selectedNode);
+				selectedNode = null;
+				oldSelected = tree;
+			}
+		}
+
+		function srh(node) {
+			if(node != null) {
+				var text = document.getElementsByTagName("input")[0].value;
+				var childLen = node.childNodes.length;
+				for(var i = 0; i < childLen; i++) {
+					if(node.childNodes[i].nodeType == 1 && node.childNodes[i].nodeName != "P") {
+						break;
+					}
+				}
+				if(node.firstElementChild && node.firstElementChild.textContent == text) {
+					node.firstElementChild.style.color = "blue";
+					expan(node);
+				}
+				srh(node.childNodes[i]);
+				srh(node.nextElementSibling);
+			}
+		}
+
+		function expan(node) {
+			node = node.parentNode;
+			while(node != tree) {
+				if(node.status != null) {
+					if(node.status == false) {
+						subChange(node);
+					}
+				}
+				node = node.parentNode;
+			}
+		}
+	</script>
+</body>
+</html>

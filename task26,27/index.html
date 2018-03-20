@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task26</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body id="my-body">
+	<div id="my-main">
+		<div class="my-screen">
+			<canvas id="my-canvas"></canvas>
+			<canvas id="my-background"></canvas>
+		</div>
+		<form class="my-choose">
+			<div>
+				<label>动力系统选择:</label>
+				<input type="radio" name="dynamic" value="d1" checked>前进号(速率30px/s,能耗5%/s)
+				<input type="radio" name="dynamic" value="d2">奔腾号(速率50px/s,能耗7%/s)
+				<input type="radio" name="dynamic" value="d3">超越号(速率80px/s,能耗9%/s)
+			</div>
+			<div>
+				<label>能源系统选择:</label>
+				<input type="radio" name="power" value="p1" checked>劲量型(补充能源速度2%/s)
+				<input type="radio" name="power" value="p2">光能型(补充能源速度3%/s)
+				<input type="radio" name="power" value="p3">永久型(补充能源速度4%/s)	
+			</div>
+			<div class="my-btn my-launch" name="launch">launch</div>
+		</form>
+		<form class="my-control">
+			<fieldset>
+				<legend>Control Panel</legend>
+				<ul>				
+					<li class="my-wrapper">
+						<span class="my-dynamic"></span>
+						<span class="my-power"></span>
+						<span class="my-name">Spaceship No.1:</span>
+						<div class="my-btn" name="fly">fly</div>
+						<div class="my-btn" name="stop">stop</div>
+						<div class="my-btn" name="destroy">destroy</div>
+						<span class="my-av-power">100.00%</span>
+					</li>
+					<li class="my-wrapper">
+						<span class="my-dynamic"></span>
+						<span class="my-power"></span>
+						<span class="my-name">Spaceship No.2:</span>
+						<div class="my-btn" name="fly">fly</div>
+						<div class="my-btn" name="stop">stop</div>
+						<div class="my-btn" name="destroy">destroy</div>
+						<span class="my-av-power">100.00%</span>
+					</li>
+					<li class="my-wrapper">
+						<span class="my-dynamic"></span>
+						<span class="my-power"></span>
+						<span class="my-name">Spaceship No.3:</span>
+						<div class="my-btn" name="fly">fly</div>
+						<div class="my-btn" name="stop">stop</div>
+						<div class="my-btn" name="destroy">destroy</div>
+						<span class="my-av-power">100.00%</span>
+					</li>
+					<li class="my-wrapper">
+						<span class="my-dynamic"></span>
+						<span class="my-power"></span>
+						<span class="my-name">Spaceship No.4:</span>
+						<div class="my-btn" name="fly">fly</div>
+						<div class="my-btn" name="stop">stop</div>
+						<div class="my-btn" name="destroy">destroy</div>
+						<span class="my-av-power">100.00%</span>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="my-console">
+			<h2>Console Log</h2>
+			<ul id="my-msg"></ul>
+		</div>	
+	</div>
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

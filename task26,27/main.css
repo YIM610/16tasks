@@ -1,0 +1,148 @@
+* {
+	margin:0;
+	padding: 0;
+	color: #fff;
+	list-style-type: none;
+}
+
+#my-body {
+	background: url("background.jpg") no-repeat;
+	background-size: 1500px;
+}
+
+.my-screen {
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+}
+
+#my-canvas, #my-background {
+	width: 600px;
+	height: 600px;
+}
+
+#my-canvas {
+	position: absolute;
+	top: 0;
+	z-index: 10;
+	background: transparent;
+}
+
+#my-background {
+	position: relative;
+	z-index: 1;
+	background: transparent;
+}
+
+.my-control {
+	width: 600px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	text-align: center;
+}
+
+.my-control fieldset {
+	height: 180px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.my-wrapper {
+	display: none;
+	margin: 5px 0;
+	white-space: nowrap;
+}
+
+.my-console {
+	width: 500px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border: 2px solid #999;
+	border-radius: 5px;
+	padding: 10px;
+	z-index: 100;
+}
+
+@media screen and (max-width: 1100px) {
+	.my-console {
+		display: none;
+	}
+}
+
+.my-btn {
+	width: 80px;
+	height: 25px;
+	background-color: #000;
+	border-radius: 5px;
+	box-shadow: 0 2px #999;
+	border: 1px solid #fff;
+	outline: none;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.my-btn:hover {
+	border: 1px solid #999;
+}
+
+.my-btn:active {
+	box-shadow: 0 0px #666;
+	transform: translateY(1px);
+}
+
+.my-launch {
+	width: 100px;
+	text-align: center;
+}
+
+#my-msg {
+	height: 300px;
+	text-align: left;
+	margin-left: 15px;
+	overflow: auto;
+}
+
+#my-msg > li {
+	font-size: 0.9em;
+	margin: 2px 5px;
+}
+
+.my-info {
+	color: #9BCD9B;
+}
+
+.my-warning {
+	color: #FF3030;
+}
+
+.my-choose {
+	width: 400px;
+	color: #f45de8;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 10px;
+	z-index: 100;
+}
+
+.my-choose div {
+	margin: 5px;
+	color: 	#D1EEEE;
+}
+
+.my-choose label {
+	color: #B0E0E6;
+	font-weight: bold;
+}
+
+.my-av-power {
+	color: #F08080;
+}
+
+.my-dynamic, .my-power {
+	color: #D4D4D4;
+	font-weight: bold;
+}
