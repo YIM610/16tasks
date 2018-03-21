@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task32</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="form_data_set">
+		<form id="data_create">
+			<fieldset id="type_box" class="input">
+				<legend>类型</legend>
+
+				<input name="data_type" type="radio" id="input" checked="true">
+				<label>输入框</label>
+
+				<input name="data_type" type="radio" id="radio">
+				<label>单选框</label>
+
+				<input name="data_type" type="radio" id="checkbox">
+				<label>多选框</label>
+
+				<input name="data_type" type="radio" id="select">
+				<label>下拉框</label>
+
+				<input name="data_type" type="radio" id="textarea">
+				<label>文本域</label>
+			</fieldset>
+			<fieldset id="config_box" class="necessary">
+				<legend>配置</legend>
+
+				<label>名称：</label>
+				<input type="text" id="name_box" class="necessary" value="姓名">
+
+				<input name="data_need" type="radio" id="necessary" checked="true">
+				<label>必填</label>
+
+				<input name="data_need" type="radio" id="unnecessary">
+				<label>选填</label>
+
+				<select id="select_box">
+					<option>样式一</option>
+					<option>样式二</option>
+				</select>
+			</fieldset>
+			<fieldset id="rule_box" class="text">
+				<legend>规则</legend>
+
+				<input name="data_rule" type="radio" checked="true" id="text">
+				<label>文字</label>
+
+				<input name="data_rule" type="radio" id="number">
+				<label>数字</label>
+
+				<input name="data_rule" type="radio" id="email">
+				<label>邮箱</label>
+
+				<input name="data_rule" type="radio" id="phone">
+				<label>电话号码</label>
+
+				<input name="data_rule" type="radio" id="password">
+				<label>密码</label>
+			</fieldset>
+			<fieldset id="length_box">
+				<legend>长度限制</legend>
+
+				<label>字符范围</label>
+				<input type="number" min="0" value="4" id="min_len">
+				<span>--</span>
+				<input type="number" min="1" value="16" id="max_len">
+			</fieldset>
+			<fieldset id="item_box">
+				<legend>选项</legend>
+				<input type="text" id="item_box_input" placeholder="可用空格，逗号，回车来分隔选项">
+				<div id="item_box_show"></div>
+			</fieldset>
+			<button id="add_btn">添加</button>
+		</form>
+	</div>
+	<div id="form_box">
+		<h1 id="title">表单展示区</h1>
+		<form id="result" class="style1">
+			<button id="submit_btn">提交</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="variable.js"></script>
+	<script type="text/javascript" src="DataCreate.js"></script>
+	<script type="text/javascript" src="Form.js"></script>
+	<script type="text/javascript" src="ItemCreate.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

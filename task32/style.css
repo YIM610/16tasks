@@ -1,0 +1,187 @@
+#data_create fieldset:nth-of-type(n+3) {
+	display: none;
+}
+
+fieldset {
+	margin-bottom: 10px;
+}
+
+#data_create .select~#item_box,
+#data_create .checkbox~#item_box,
+#data_create .radio~#item_box,
+#data_create .textarea~#length_box,
+#data_create .input~.password~#length_box,
+#data_create .input~.text~#length_box,
+#data_create .input~#rule_box {
+	display: block;
+}
+
+#form_data_set {
+	width: 300px;
+	float: left;
+}
+
+#form_data_set label {
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 8px;
+}
+
+#form_data_set #name_box {
+	width: 200px;
+	margin-bottom: 5px;
+}
+
+#length_box input {
+	width: 20%;
+}
+
+#add_btn, #submit_btn {
+	margin-top: 20px;
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	background-color: #F08080;
+	border: 1px solid #EE6363;
+	outline: none;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+#add_btn:hover {
+	background-color: #EE6363;
+}
+
+#form_box {
+	margin-left: 340px;
+	min-width: 600px;
+	padding: 0 0 20px 50px;
+	border: 1px solid #000;
+}
+
+#title {
+	color: #F08080;
+}
+
+#result {
+	width: 400px;
+	margin: 20px auto;
+	position: relative;
+}
+
+#result .radio_box input {
+	width: auto;
+	height: auto;
+	text-align: left;
+}
+
+#result .radio_box label {
+	display: inline-block;
+	position: static;
+	width: auto;
+	margin-right: 10px;
+}
+
+#result input {
+	width: 100%;
+	height: 30px;
+	outline: none;
+	border: 1px solid #999;
+	border-radius: 8px;
+}
+
+#result .radio_box label:first-child,
+#result label {
+	display: block;
+	text-align: right;
+	position: absolute;
+	width: 300px;
+	left: -320px;
+	margin-top: 4px;
+}
+
+#result.style2 div {
+	margin-top: 10px;
+	width: 300px;
+	position: relative;
+}
+
+#result.style2 span {
+	top: 0;
+	display: block;
+	position: absolute;
+	text-align: left;
+	margin-top: 4px;
+	right: -350px;
+	width: 320px;
+}
+
+#result span {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #999;
+}
+
+#result .true {
+	color: #9BCD9B;
+	border-color: #9BCD9B;
+}
+
+#result .formNameLabel {
+	color: #000;
+}
+
+#result .error {
+	color: 	#FF4040;
+	border-color: 	#FF4040;
+}
+
+#result :first-child[id=submit_btn] {
+	display: none;
+}
+
+#item_box_show {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 20px;
+}
+
+#item_box input {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.item {
+	height: 20px;
+	background-color: red;
+	color: #fff;
+	margin: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.item>span {
+	transition: width 0.2s linear;
+	display: inline-block;
+	width: 0;
+	height: 16px;
+	overflow: hidden;
+}
+
+.item:hover>span {
+	transition: width 0.2 linear;
+	width: 64px;
+	height: 16px;
+}
+
+.item:hover {
+	background-color: blue;
+}
+
+.hide {
+	display: none;
+}
