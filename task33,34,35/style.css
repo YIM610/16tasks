@@ -1,0 +1,102 @@
+#main {
+	width: 500px;
+	margin: 0 auto;
+}
+
+#container {
+	width: 499px;
+	height: 499px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	position: relative;
+}
+
+.item {
+	width: 49px;
+	height: 49px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	float: left;
+}
+
+.item-right {
+	border-right: none;
+}
+
+.item-bottom {
+	border-bottom: none;
+}
+
+#active_item {
+	width: 49px;
+	height: 49px;
+	box-sizing: border-box;
+	border-top: 10px solid #00f;
+	background-color: #f00;
+	position: absolute;
+	transition: all 1s;
+}
+
+#exe_container {
+	margin-top: 20px;
+	position: relative;
+}
+
+#exe_cmd {
+	width: 300px;
+	height: 150px;
+	resize: none;
+	outline: none;
+	font-size: 16px;
+	line-height: 20px;
+	background-color: #404040;
+	color: #B4EEB4;
+	border: none;
+	box-sizing: border-box;
+	position: absolute;
+	left: 20px;
+	top: 40px;
+}
+
+#line_num {
+	width: 20px;
+	height: 150px;
+	position: absolute;
+	left: 0;
+	top: 40px;
+	overflow: hidden;
+	background-color: #A9A9A9;
+	color: #fff;
+}
+
+#line_num span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: right;
+	padding-right: 2px;
+	box-sizing: border-box;
+	float: left;
+}
+
+#exe_btn, #refresh_btn {
+	width: 70px;
+	height: 30px;
+	border-radius: 5px;
+	outline: none;
+	margin-right: 10px;
+	background-color: #fff;
+	border: 1px solid #999;
+	float: left;
+}
+
+#exe_btn:active, #refresh_btn:active {
+	border: 1px solid #000;
+}
+
+.input_wrong {
+	background: #EE0000;
+	border-radius: 50%;
+}
