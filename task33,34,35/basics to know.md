@@ -44,7 +44,7 @@ ES6原生支持Promise。
 
 Promise的then方法可以用来注册当Promise完成或者失败时调用的回调函数。Promise提供了一种优雅的解决方案，主要用法就是将各个异步操作封装成好多Promise，而一个Promise只处理一个异步逻辑，最后将各个Promise用链式调用写法串联。
 
-###Promise对象的方法：
+### Promise对象的方法：
 
 1. Resolve：该方法可以使 Promise 对象的状态改变成成功，同时传递一个参数用于后续成功后的操作。
 2. Reject：该方法则是将 Promise 对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作。
@@ -53,7 +53,7 @@ Promise的then方法可以用来注册当Promise完成或者失败时调用的�
 5. All：该方法可以接收一个元素为 Promise 对象的数组作为参数，当这个数组里面所有的 Promise 对象都变为 resolve 时，该方法才会返回。就是全部都执行完了才接着往下执行。
 6. Race：竞速，类似All方法，它同样接收一个数组，不同的是只要该数组中的 Promise 对象的状态发生变化（无论是 resolve 还是 reject）该方法都会返回。就是只要某一个执行完了就接着往下执行。
 
-###Promise的链式调用
+### Promise的链式调用
 
 要实现链式调用，在then中的resolve方法如何return很关键。在then方法中通常传递两个参数，一个resolve函数，一个reject函数。resolve函数必须返回一个值才能把链式调用进行下去。
 
