@@ -19,6 +19,10 @@
 	float: left;
 }
 
+.item[data-type=wall] {
+	background-color: #999;
+}
+
 .item-right {
 	border-right: none;
 }
@@ -34,7 +38,7 @@
 	border-top: 10px solid #00f;
 	background-color: #f00;
 	position: absolute;
-	transition: all 1s;
+	transition: all 0.5s;
 }
 
 #exe_container {
@@ -54,12 +58,12 @@
 	border: none;
 	box-sizing: border-box;
 	position: absolute;
-	left: 20px;
+	left: 30px;
 	top: 40px;
 }
 
-#line_num {
-	width: 20px;
+#line_num_wrapper {
+	width: 30px;
 	height: 150px;
 	position: absolute;
 	left: 0;
@@ -69,19 +73,23 @@
 	color: #fff;
 }
 
+#line_num {
+	position: relative;
+}
+
 #line_num span {
 	display: inline-block;
-	width: 20px;
+	width: 30px;
 	height: 20px;
 	font-size: 12px;
 	line-height: 20px;
 	text-align: right;
-	padding-right: 2px;
+	padding-right: 5px;
 	box-sizing: border-box;
 	float: left;
 }
 
-#exe_btn, #refresh_btn {
+#exe_btn, #build_btn {
 	width: 70px;
 	height: 30px;
 	border-radius: 5px;
@@ -92,11 +100,10 @@
 	float: left;
 }
 
-#exe_btn:active, #refresh_btn:active {
+#exe_btn:active, #build_btn:active {
 	border: 1px solid #000;
 }
 
 .input_wrong {
-	background: #EE0000;
-	border-radius: 50%;
+	background: #FF6347;
 }

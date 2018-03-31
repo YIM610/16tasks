@@ -1,3 +1,4 @@
+#Promise
 js是单线程的，所以js的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现。异步操作会在将来的某个时间点触发一个函数调用。
 
 
@@ -59,4 +60,33 @@ Promise的then方法可以用来注册当Promise完成或者失败时调用的�
 
 * 在then的resolve方法中返回一个新的Promise对象
 * 在then的resolve方法中返回一个值（这样会导致第一个then还未执行完就进入了第二个then）
-	
+
+# FileReader
+
+FileReader对象允许web应用程序异步读取存储在用户计算机上的文件。
+
+属性：
+
+1. FileReader.error(or)
+2. FileReader.readyState(or)
+	* EMPTY: 0 [还没有加载任何数据]
+	* LOADING 1 [数据正在被加载]
+	* DONE 2 [已完成全部的读取请求]
+3. FileReader.result：文件的内容，该属性只有在读取操作完成后才有效，数据的格式取决于使用哪个方法来启动读取操作。
+
+事件处理：
+
+1. FileReader.onabort(读取操作被中断)
+2. FileReader.onerror(读取操作发生错误)
+3. FileReader.onload(读取操作完成)
+4. FileReader.onloadstart
+5. FileReader.onloadend(读取操作完成，成功或失败)
+6. FileReader.onprogress(读取Blob时触发)
+
+方法：
+
+1. FileReader.abort()：中止读取操作，readyState属性设为DONE
+2. FileReader.readAsArrayBuffer():开始读取指定Blob中的内容，一旦完成，result属性中保存的是被读取文件的ArrayBuffer数据对象
+3. FileReader.readAsBinaryString()：开始读取指定Blob中的内容，一旦完成，result属性中将包含所读取文件的原始二进制数据
+4. FileReader.readAdDataURL():开始读取指定Blob中的内容，一旦完成，result属性中将包含一个data：URL格式的字符串以表示所读取文件的内容。使用base-64编码"data:image/jpeg;base64, + 编码后的图片内容
+5. FileReader.readAsText():开始读取Blob中的内容。一旦完成，result属性中将包含一个字符串以表示所读取的文件内容。
