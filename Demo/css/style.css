@@ -1,0 +1,8 @@
+.my_task_item {
+	cursor: pointer;
+}
+
+.my_btn {
+	position: relative;
+	left: 50px;
+}
