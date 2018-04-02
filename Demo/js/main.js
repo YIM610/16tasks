@@ -39,6 +39,7 @@
 	new Item("task31", "表单（三）联动");
 	new Item("task29,30", "表单（一）单个（二）多个表单项的动态校验");
 	new Item("task26,27,28", "行星与飞船（一）（二）（三）");
+	new Item("task24,25", "JavaScript和树（三）（四）");
 	new Item("task23", "JavaScript和树（二）");
 	new Item("task22", "JavaScript和树（一）");
 	new Item("task19", "基础JavaScript练习（二）");
