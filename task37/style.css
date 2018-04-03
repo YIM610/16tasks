@@ -1,0 +1,94 @@
+#main {
+	height: 2000px;
+}
+
+#container {
+	width: 400px;
+	height: 200px;
+	position: relative;
+	border: 1px solid #000;
+	position: fixed;
+	border-radius: 10px;
+	transition: width 2s;
+	z-index: 100;
+	background: #fff;
+}
+.tip_header {
+	width: 100%;
+	height: 50px;
+	height: 50px;
+	background-color: #ddd;
+	position: absolute;
+	top: 0;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	cursor: move;
+}
+
+.tip_header p {
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 10px;
+	margin: auto 0;
+}
+
+.tip_content {
+	width: 100%;
+	height: 150px;
+	padding: 10px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 50px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.btn_wrap {
+	width: 150px;
+	height: 30px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.btn_wrap button {
+	color: #fff;
+	width: 70px;
+	height: 30px;
+	border-radius: 5px;
+	outline: none;
+	border:  1px solid #8B8989;
+	background-color: #DCDCDC;
+}
+
+.btn_wrap button:active {
+	background-color: #8B8989;
+}
+
+.btn_wrap .conform {
+	position: absolute;
+	left: 0;
+}
+
+.btn_wrap .cancel {
+	position: absolute;
+	right: 0;
+}
+
+.mask {
+	background: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
