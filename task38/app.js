@@ -1,0 +1,1 @@
+new SortedTable(document.getElementById("table_data"));
