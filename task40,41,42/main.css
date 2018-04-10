@@ -22,6 +22,7 @@
 	border: 1px solid #ddd;
 	border-top: none;
 	overflow: auto;
+	position: absolute;
 }
 
 #left_arrow {
@@ -79,12 +80,20 @@
 	color: rgb(198,27,1);
 }
 
-#selected {
+#selected_start, #selected_end {
 	color: #fff;
 	background: rgb(198,27,1);
 }
 
-#date_input {
+#selected_end {
+	color: #0f0;
+}
+
+.selected {
+	background: #ddd;
+}
+
+#date_input, #date_multi_input {
 	width: 200px;
 	height: 20px;
 }
@@ -95,4 +104,8 @@
 
 .show {
 	display: block;
+}
+
+#button_wrap {
+	position: absolute;
 }
