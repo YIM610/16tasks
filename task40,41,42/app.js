@@ -1,8 +1,9 @@
-window.onload = function() {
+//window.onload = function() {
 	var input = document.getElementById("date_input");
 	var multiInput = document.getElementById("date_multi_input");
+	var calendar_ele = document.getElementById("calendar");
 
-	var calendar = new Calendar(document.getElementById("calendar"), 250);
+	var calendar = new Calendar(calendar_ele, 250);
 	
 	function callBack1() {
 		var dateText = calendar.controller().getDateValue();
@@ -20,29 +21,30 @@ window.onload = function() {
 
 
 	input.onclick = function(e) {
-		if(e.target.value) {
-			var DayList = e.target.value.split("-");
-			calendar.controller().setDateValue(DayList[0], DayList[1], DayList[2], false);
-		}
-
 		calendar.controller().setMulti(false);
 		calendar.controller().setFun(callBack1);
 		calendar.controller().toggleShow();
+
+		if(e.target.value) {
+			var DayList = e.target.value.split("-");
+			calendar.controller().setDateValue(DayList, false);
+		}
 		callBack1();
 	};
 
 	multiInput.onclick = function(e) {
-		if(e.target.value) {
-			var DayList = e.target.value.split("——");
-			DayList = DayList[0].split("-");
-
-			calendar.controller().setDateValue(DayList[0], DayList[1], DayList[2], false);
-		}
-
 		calendar.controller().setFun(callBack2);
 		calendar.controller().setMulti(true);
 
 		calendar.controller().toggleShow();
+
+		if(e.target.value) {
+			var DayList = e.target.value.split("——");
+			var start = DayList[0].split("-");
+			var end = DayList[1].split("-");
+
+			calendar.controller().setDateValue(start, false, end);
+		}
 		callBack2();
 	};
-};
+//};
