@@ -41,7 +41,7 @@
 				for(var i in children) {
 					var item = children[i];
 					var index = getIndex(item, openSet);
-					if(self.isAvail(item.pos[0], item.pos[1]) && getIndex(item, closedSet) != -1) {
+					if(self.isAvail(item.pos[0], item.pos[1]) && getIndex(item, closedSet) == -1) {
 						var g = n.g + 1;
 						if(index == -1) {
 							item.g = g;
