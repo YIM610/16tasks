@@ -107,3 +107,15 @@
 .input_wrong {
 	background: #FF6347;
 }
+
+#tips {
+	width: 400px;
+	position: absolute;
+	top: 0;
+}
+
+@media (max-width: 1300px) {
+	#tips {
+		display: none;
+	}
+}
