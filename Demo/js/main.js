@@ -34,6 +34,7 @@
 
 	};
 
+	new Item("task43", "多功能相册之拼图布局");
 	new Item("task40,41,42", "UI组件之日历组件（一）（二）（三）");
 	new Item("task39", "UI组件之冻结行列表格");
 	new Item("task38", "UI组件之排序表格");
